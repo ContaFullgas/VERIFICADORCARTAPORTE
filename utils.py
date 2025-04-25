@@ -2,8 +2,29 @@
 
 def parse_float(value: str) -> float:
     """
-    Convierte una cadena a float. Retorna 0.0 en caso de error.
+    Convierte un valor de tipo cadena a un número flotante.
+    Esta función toma un valor de entrada en forma de cadena y trata de convertirlo 
+    a un número flotante utilizando la función incorporada `float()`. Si la conversión 
+    falla debido a un error de tipo o de valor (por ejemplo, si el valor no es una 
+    cadena válida que represente un número), la función devuelve 0.0 como valor predeterminado.
+    Parámetros:
+    -----------
+    value : str
+        El valor en forma de cadena que se desea convertir a flotante.
+    Retorna:
+    --------
+    float
+        El número flotante resultante de la conversión, o 0.0 si ocurre un error.
+    Ejemplo:
+    --------
+    >>> parse_float("123.45")
+    123.45
+    >>> parse_float("abc")
+    0.0
+    >>> parse_float(None)
+    0.0
     """
+
     try:
         return float(value)
     except (ValueError, TypeError):

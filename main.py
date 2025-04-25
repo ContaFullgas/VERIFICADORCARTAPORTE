@@ -1,5 +1,43 @@
 # main.py
+"""
+    Este archivo principal (`main.py`) implementa una aplicación Streamlit para la verificación de
+    cartaportes. Permite a los usuarios cargar archivos XML, ZIP o PDF, procesarlos y visualizar los
+    resultados. Las principales funcionalidades incluyen:
 
+    1. **Carga de Archivos**:
+       - Los usuarios pueden cargar múltiples archivos XML, ZIP o PDF utilizando un cargador de archivos.
+       - Los archivos ZIP se descomprimen automáticamente para extraer su contenido.
+
+    2. **Procesamiento de Archivos**:
+       - Los archivos cargados se procesan mediante la función `process_uploaded_files` del módulo `pdf_handler`.
+       - Se extraen datos relevantes de los archivos XML y se asocian con los archivos PDF correspondientes.
+
+    3. **Visualización de Resultados**:
+       - Los datos procesados se muestran en un DataFrame interactivo.
+       - Se calculan y muestran las sumas totales de litros facturados y transportados.
+       - Los usuarios pueden filtrar los resultados por tipo de combustible y ver las sumas correspondientes.
+
+    4. **Descarga de Resultados**:
+       - Los usuarios pueden descargar los datos procesados en formato Excel.
+       - También pueden descargar un archivo ZIP que incluye el Excel y los PDFs asociados.
+
+    5. **Visualización de PDFs Asociados**:
+       - Los usuarios pueden seleccionar y visualizar los archivos PDF asociados directamente en la aplicación.
+
+    Notas:
+      - La aplicación utiliza `st.session_state` para almacenar los resultados procesados y los archivos PDF.
+      - Se manejan casos en los que no se encuentran XML válidos o PDFs asociados.
+      - La interfaz incluye mensajes de advertencia, éxito e información para mejorar la experiencia del usuario.
+
+    Cómo ejecutar:
+      - Ejecuta este archivo con `streamlit run main.py` en la terminal.
+      - Accede a la aplicación en el navegador web para interactuar con las funcionalidades.
+
+    Dependencias:
+      - Streamlit
+      - Pandas
+      - Funciones auxiliares del módulo `pdf_handler` (`process_uploaded_files`, `generar_zip`).
+"""
 import os
 import base64
 from io import BytesIO
