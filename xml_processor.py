@@ -9,9 +9,19 @@ NS_CFDI = {'cfdi': 'http://www.sat.gob.mx/cfd/4'}
 
 def identify_format(file_path: str) -> str | None:
     """
-    Identifica si el XML corresponde a CartaPorte20, CartaPorte30 o CartaPorte31.
-    Retorna 'format1', 'format2' o 'format31' respectivamente, o None si no coincide.
+    La función `identify_format` analiza un archivo XML e identifica el formato basándose en la presencia de
+    elementos específicos con espacios de nombres definidos.
+    
+    param ruta_archivo: La función `identify_format` toma una ruta de archivo como entrada e intenta identificar
+    el formato del archivo basándose en la presencia de elementos específicos en la estructura XML. Comprueba
+    la presencia de ciertos elementos como 'Mercancia' dentro de diferentes espacios de nombres para determinar el
+    formato del fichero
+    :type ruta_archivo: str
+    :return: La función `identify_format` devuelve una cadena que indica el formato del fichero
+    basándose en la presencia de elementos específicos en la estructura XML. Los posibles valores de retorno son
+    format1', 'format2', 'format31', o None si no se encuentra ninguno de los elementos especificados en el fichero XML especificado.
     """
+
     tree = ET.parse(file_path)
     root = tree.getroot()
 
